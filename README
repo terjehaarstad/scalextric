@@ -1,0 +1,21 @@
+Ruby API which helps communicating with Scalextric Advanced Power Base and
+control cars. It is not ment to be another RMS for Scalextric systems as
+this code is developed with another project in mind. It is acting as a
+very simple and cheap client to the APB with just a few functions implemented.
+
+Features:
+- Start and stop communication with APB.
+- Populate packet received from APB.
+- Enable/Disable LEDs on APB.
+- Speed up and brake cars.
+
+Example:
+base = APB.new
+base.start_comms
+base.start_race
+base.run_car(1,63)  # 63 == skidmarks.
+
+
+Requirements:
+- Ruby 2.2
+- SerialPort-gem, specified in Gemspec-file.

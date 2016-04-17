@@ -1,0 +1,60 @@
+All information found in these notes are all about Scalextric Advanced Power 
+Base (C7042). Connection schematics might differ from other models.
+
+The communication model is based on the serial communication standard, Universal
+Asynchronous Receiver/Transmitter (UART), using half duplex transmission.
+The protocol is suitable for general application under standard communication such as EIA RS-
+485-Standard, RF-wireless and Infrared.
+
+The UART configurations
+-----------
+1 start bit (0),
+8 data bits,
+1 stop bit (1),
+No parity bit
+Baudrate: 19,200b
+
+
+RJ11 connector
+-----------
+Pin1 - Not connected
+Pin2 - Ground
+Pin3 - RS-485 –V(Receive/Transmit inverting)
+Pin4 - RS-485 +V(Receive/Transmit not inverting)
+Pin5 - 12 Volts
+Pin6 - Not connected
+
+Had to open up the display to get more information about the RS485 communication, 
+found a chip connected to aux-port (75176B, rs485 transceiver). I found the FTDI
+USB to RS485 converter to support this transceiver.
+
+FTDI USB-RS485 Converter
+-----------
+
+1 - Black - GND
+2 - Yellow - Data- (B)
+3 - Red - Power
+4 - Brown - Terminator 120R, Pin1
+5 - Orange - Data+ (A)
+6 - Green - Terminator 120R, Pin 2
+
+
+APB to PC connection (Cat5 RJ11 Cable - FTDI USB RS485 Converter)
+-----------
+I used an Cat5 cable and terminated an RJ11 connector to one end.
+
+1. Green - NC
+2. Wh/Green - 1. Black
+3. Blue  -  2. Yellow
+4. Wh/Blue - 5. Orange
+5. Brown - Do not connect! In fact, remove this wire from the connector.
+6. Wh/Brown - NC
+
+See "./docs/Connection.png" for schematic.
+
+Requirements
+-----------
+Cable:
+USB-RS485-WE-5000-BT
+http://www.ftdichip.com/Products/Cables/USBRS485.htm
+http://www.ftdichip.com/Support/Documents/DataSheets/Cables/DS_USB_RS485_CABLES.pdf
